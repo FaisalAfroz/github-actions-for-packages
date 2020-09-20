@@ -1,7 +1,8 @@
 name: Node CI
-
-on: [push]
-
+on:
+  push:
+    paths:
+      - "**Dockerfile**"
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,7 +24,6 @@ jobs:
       matrix:
         os: [ubuntu-lastest, windows-2016]
         node-version: [12.x, 14.x]
-
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js ${{ matrix.node-version }}
